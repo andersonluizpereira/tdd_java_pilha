@@ -20,6 +20,8 @@ public class Pilha {
 
 	public void empilha(Object elemento) {
 		// TODO Auto-generated method stub
+		if(quantidade == elementos.length)
+			throw new PilhaCheiaException("Não é possivél empilhar mais elementos.");
 		this.elementos[this.quantidade] = elemento;
 		this.quantidade++;
 	}
@@ -31,6 +33,8 @@ public class Pilha {
 
 	public Object desempilha() {
 		// TODO Auto-generated method stub
+		if(this.estaVazia())
+			throw new PilhaVaziaException("Não é possivél desempilhar.");
 		Object topo = this.topo();
 		this.quantidade--;
 		return topo;

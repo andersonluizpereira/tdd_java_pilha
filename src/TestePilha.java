@@ -37,4 +37,18 @@ public class TestePilha {
 		assertEquals("primeiro", p.topo());
 		assertEquals("segundo", desempilhado);
 	}
+	
+	@Test(expected=PilhaVaziaException.class)
+	public void removeDaPilhaVazia( ) {
+		p.desempilha();
+	}
+	
+	public void adicionaNaPilhaCheia( ) {
+		for (int i = 0; i < 10; i++) {
+			p.empilha("empliha"+i);
+		}
+		try {
+			p.empilha("boom");
+		} catch (PilhaCheiaException e) {}
+	}
 }
